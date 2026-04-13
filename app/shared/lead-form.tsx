@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { supabase } from "../lib/supabase.client"
 
 export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
   const [nome, setNome] = useState("")
@@ -13,12 +14,10 @@ export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
 
     setStatus("loading")
     try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, empresa }),
-      })
-      if (!res.ok) throw new Error()
+      const {data, error} = await supabase.from("leads")
+      .insert({ nome, email, empresa }).select().single()
+      if (error) throw error
+      console.log("Lead inserido:", data)
       setStatus("success")
       setMessage("Ótimo! Você entrou na lista. Avisaremos assim que abrirmos o acesso.")
       setNome(""); setEmail(""); setEmpresa("")

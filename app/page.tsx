@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import { STEPS } from "./shared/steps"
 import { FEATURES } from "./shared/features"
 import { STATS } from "./shared/stats"
@@ -6,27 +7,58 @@ import { GroweIcon } from "./shared/growe.icon"
 import { LeadForm } from "./shared/lead-form"
 
 export default function Home() {
+  const [navOpen, setNavOpen] = useState(false)
   return (
     <div style={{ overflowX: "hidden" }}>
+      <nav className="bg-white shadow-green-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="/" className="flex items-center gap-3 no-underline">
+            <GroweIcon size={36} />
+            <span className="font-(--font-display) text-[1.5rem] text-(--color-forest) tracking-tight">Growe</span>
+          </a>
 
-      <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-green-sm">
-        <a href="/" className="flex items-center gap-3 no-underline">
-          <GroweIcon size={36} />
-          <span className="font-(--font-display) text-[1.5rem] text-(--color-forest) tracking-tight">Growe</span>
-        </a>
-        <div className="flex items-center gap-8">
-          <a href="#como-funciona" className="text-(--color-forest) hover:text-(--color-mid) font-medium transition-colors">Como funciona</a>
-          <a href="#funcionalidades" className="text-(--color-forest) hover:text-(--color-mid) font-medium transition-colors">Funcionalidades</a>
-          <a href="#cadastro" className="btn btn-soft btn-sm">Entrar em contato</a>
-          <a href="#cadastro" className="btn btn-primary btn-sm">Cadastrar</a>
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#como-funciona" className="text-(--color-forest) hover:text-(--color-mid) font-medium transition-colors">Como funciona</a>
+            <a href="#funcionalidades" className="text-(--color-forest) hover:text-(--color-mid) font-medium transition-colors">Funcionalidades</a>
+            <a href="#cadastro" className="btn btn-soft btn-sm">Entrar em contato</a>
+            <a href="#cadastro" className="btn btn-primary btn-sm">Cadastrar</a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            aria-expanded={navOpen}
+            onClick={() => setNavOpen(!navOpen)}
+            className="md:hidden btn-ghost p-2 rounded-md"
+          >
+            {navOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6l12 12" stroke="var(--color-forest)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12h18M3 6h18M3 18h18" stroke="var(--color-forest)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`${navOpen ? 'block' : 'hidden'} md:hidden px-6 pb-4`}>
+          <div className="flex flex-col gap-3">
+            <a href="#como-funciona" className="text-(--color-forest) hover:text-(--color-mid) font-medium">Como funciona</a>
+            <a href="#funcionalidades" className="text-(--color-forest) hover:text-(--color-mid) font-medium">Funcionalidades</a>
+            <a href="#cadastro" className="btn btn-soft">Entrar em contato</a>
+            <a href="#cadastro" className="btn btn-primary">Cadastrar</a>
+          </div>
         </div>
       </nav>
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-white px-6 pt-20 pb-16">
-        {/* Decoração de fundo */}
-        <div className="absolute -top-32 -right-32 w-125 h-125 rounded-full bg-(--color-soft) opacity-60 z-0" />
-        <div className="absolute -bottom-20 -left-20 w-75 h-75 rounded-full bg-(--color-soft) opacity-40 z-0" />
+        {/* Decoração de fundo (esconder em telas pequenas) */}
+        <div className="hidden md:block absolute -top-32 -right-32 w-40 h-40 rounded-full bg-(--color-soft) opacity-60 z-0" />
+        <div className="hidden md:block absolute -bottom-20 -left-20 w-32 h-32 rounded-full bg-(--color-soft) opacity-40 z-0" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -81,27 +113,11 @@ export default function Home() {
 
       {/* ── STATS ── */}
       <section style={{ background: "var(--color-forest)", padding: "3.5rem 1.5rem" }}>
-        <div style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "2rem",
-        }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {STATS.map((stat, i) => (
-            <div key={i} style={{ textAlign: "center" }}>
-              <div style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "2.5rem",
-                color: "var(--color-leaf)",
-                lineHeight: 1,
-                marginBottom: "0.5rem",
-              }}>
-                {stat.value}
-              </div>
-              <div style={{ fontSize: "0.875rem", color: "var(--color-mist)", lineHeight: 1.5 }}>
-                {stat.label}
-              </div>
+            <div key={i} className="text-center">
+              <div className="stat-value" style={{ color: 'var(--color-leaf)' }}>{stat.value}</div>
+              <div className=" text-white ">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -120,11 +136,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1.5rem",
-          }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {STEPS.map((step, i) => (
               <div key={i} style={{ position: "relative" }}>
                 {/* Linha conectora */}
@@ -187,11 +199,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1.5rem",
-          }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((feature, i) => (
               <div key={i} className="card">
                 <div style={{
@@ -225,14 +233,7 @@ export default function Home() {
 
       {/* ── PROBLEMA / SOLUÇÃO ── */}
       <section style={{ padding: "5rem 1.5rem", background: "var(--color-soft)" }}>
-        <div style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
-          alignItems: "center",
-        }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <span className="badge badge-primary" style={{ marginBottom: "1.5rem" }}>O problema</span>
             <h2 className="display-md" style={{ marginBottom: "1.5rem" }}>
@@ -343,16 +344,8 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{
-        padding: "2rem 1.5rem",
-        background: "var(--color-ink)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: "1rem",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+      <footer className="py-6 px-6 bg-[var(--color-ink)] flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
           <GroweIcon size={28} />
           <span style={{
             fontFamily: "var(--font-display)",
@@ -365,7 +358,7 @@ export default function Home() {
         <p style={{ fontSize: "0.8rem", color: "var(--color-pebble)" }}>
           © {new Date().getFullYear()} Growe. Todos os direitos reservados.
         </p>
-        <div style={{ display: "flex", gap: "1.5rem" }}>
+        <div className="flex gap-6">
           <a href="#" style={{ fontSize: "0.8rem", color: "var(--color-pebble)", textDecoration: "none" }}>
             Privacidade
           </a>

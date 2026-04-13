@@ -27,6 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${dmSerif.variable} ${plusJakarta.variable}`}>
+      <head>
+        <link rel="icon" href="/growe-logo-icon.svg" type="image/svg+xml" />
+      </head>
       <body>{children}</body>
     </html>
   )
