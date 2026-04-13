@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+GroWe — a ideia
 
-## Getting Started
+GroWe é uma solução pensada para tornar a gestão de pessoas mais humana, justa e orientada a crescimento.
 
-First, run the development server:
+Visão rápida:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Muitas empresas tomam decisões sobre pessoas com base em impressões e memórias — não em evidências. GroWe quer mudar isso fornecendo clareza sobre desempenho e potencial, sem burocracia.
+- O foco é ajudar líderes e gestores a identificar quem está performando, quem precisa de desenvolvimento e como transformar avaliações em planos de crescimento reais.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para quem é:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Pequenas e médias empresas que buscam profissionalizar processos de avaliação sem complicar o dia a dia.
+- Gestores e líderes que querem tomar decisões mais justas e embasadas.
+- Times de RH que precisam de relatórios simples, claros e acionáveis.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+O que entregaremos (em termos de valor, não técnico):
 
-## Learn More
+- Clareza: tornar fácil saber quem está entregando e onde investir treinamento.
+- Justiça: avaliações mais consistentes, menos sujeitas ao "feeling" do momento.
+- Crescimento: transformar feedbacks em planos de desenvolvimento reais e acompanháveis.
+- Economia de tempo: menos trabalho manual com planilhas e mais foco em conversas de desenvolvimento.
 
-To learn more about Next.js, take a look at the following resources:
+Nosso compromisso:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Simplicidade acima de tudo: uma experiência que cabe na rotina corrida de gestores.
+- Foco em pessoas: métricas e relatórios que apoiam crescimento humano, não apenas números.
+- Adoção gradual: começar pequeno e trazer valor rápido, ampliando conforme a empresa cresce.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Quer saber mais ou participar da lista de espera? Entre em contato pelo e-mail contato@growe.com.br ou use o formulário na landing para ser avisado quando abrirmos acesso antecipado.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
