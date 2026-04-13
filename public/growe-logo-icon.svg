@@ -1,0 +1,37 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Growe — ícone</title>
+  <desc>Ícone da Growe: árvore estilizada com galhos e folhas em tons de verde</desc>
+
+  <!-- Fundo -->
+  <rect width="120" height="120" rx="28" fill="#EAF3DE"/>
+
+  <!-- Tronco -->
+  <line x1="60" y1="98" x2="60" y2="46" stroke="#27500A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Galhos superiores -->
+  <line x1="60" y1="46" x2="36" y2="24" stroke="#3B6D11" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="60" y1="46" x2="84" y2="24" stroke="#3B6D11" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Galhos médios -->
+  <line x1="60" y1="62" x2="38" y2="46" stroke="#639922" stroke-width="3" stroke-linecap="round"/>
+  <line x1="60" y1="62" x2="82" y2="46" stroke="#639922" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Galhos inferiores -->
+  <line x1="60" y1="78" x2="42" y2="64" stroke="#97C459" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="60" y1="78" x2="78" y2="64" stroke="#97C459" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Folhas: pontas dos galhos superiores -->
+  <circle cx="36" cy="24" r="8"   fill="#3B6D11"/>
+  <circle cx="84" cy="24" r="8"   fill="#3B6D11"/>
+
+  <!-- Folhas: galhos médios -->
+  <circle cx="38" cy="46" r="6.5" fill="#639922"/>
+  <circle cx="82" cy="46" r="6.5" fill="#639922"/>
+
+  <!-- Folhas: galhos inferiores -->
+  <circle cx="42" cy="64" r="5.5" fill="#97C459"/>
+  <circle cx="78" cy="64" r="5.5" fill="#97C459"/>
+
+  <!-- Raiz / base -->
+  <ellipse cx="60" cy="98" rx="14" ry="5" fill="#C0DD97"/>
+</svg>

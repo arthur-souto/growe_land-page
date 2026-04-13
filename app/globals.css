@@ -1,0 +1,310 @@
+@import "tailwindcss";
+/* ============================================================
+   GROWE — Design System v1.0
+   Tailwind v4 — sem @apply
+   ============================================================ */
+
+@theme inline {
+
+  /* ── Fontes ── */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-sans:    'Plus Jakarta Sans', sans-serif;
+  --font-mono:    var(--font-geist-mono);
+
+  /* ── Paleta Growe ── */
+  --color-forest:  #27500A;
+  --color-primary: #3B6D11;
+  --color-mid:     #639922;
+  --color-leaf:    #97C459;
+  --color-mist:    #C0DD97;
+  --color-soft:    #EAF3DE;
+
+  /* Neutros */
+  --color-ink:    #1A1F17;
+  --color-stone:  #3D4338;
+  --color-pebble: #7A8370;
+  --color-cloud:  #F4F6F1;
+
+  /* Semânticas */
+  --color-success: #3B6D11;
+  --color-warning: #BA7517;
+  --color-danger:  #A32D2D;
+  --color-info:    #185FA5;
+
+  /* Background padrão */
+  --color-background: #ffffff;
+  --color-foreground: #1A1F17;
+
+  /* Sombras */
+  --shadow-green-sm: 0 1px 3px rgba(39, 80, 10, 0.08);
+  --shadow-green-md: 0 4px 16px rgba(39, 80, 10, 0.10);
+  --shadow-green-lg: 0 8px 32px rgba(39, 80, 10, 0.14);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+:root {
+  --background: #ffffff;
+  --foreground: #1A1F17;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1a0a;
+    --foreground: #EAF3DE;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: 1.5px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 200ms ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background: var(--color-forest);
+  border-color: var(--color-forest);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-green-md);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline:hover {
+  background: var(--color-soft);
+  color: var(--color-forest);
+}
+
+.btn-soft {
+  background: var(--color-soft);
+  color: var(--color-forest);
+  border-color: var(--color-mist);
+}
+.btn-soft:hover {
+  background: var(--color-mist);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-stone);
+  border-color: transparent;
+}
+.btn-ghost:hover {
+  background: var(--color-soft);
+  color: var(--color-primary);
+}
+
+.btn-sm { padding: 0.5rem 1.25rem;   font-size: 0.75rem; }
+.btn-lg { padding: 1rem 2.25rem;     font-size: 1rem; }
+.btn-xl { padding: 1.125rem 2.75rem; font-size: 1.125rem; }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--color-mist);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 200ms ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-green-md);
+  transform: translateY(-2px);
+  border-color: var(--color-leaf);
+}
+
+.card-soft {
+  background: var(--color-soft);
+  border: 1px solid var(--color-mist);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.card-forest {
+  background: var(--color-forest);
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #ffffff;
+}
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-ink);
+  background: #ffffff;
+  border: 1.5px solid var(--color-mist);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.input::placeholder { color: var(--color-pebble); }
+.input:hover  { border-color: var(--color-leaf); }
+.input:focus  {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 109, 17, 0.12);
+}
+
+.input-lg {
+  padding: 1rem 1.25rem;
+  font-size: 1.125rem;
+  border-radius: 12px;
+}
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.badge-primary { background: var(--color-soft);  color: var(--color-forest); border: 1px solid var(--color-mist); }
+.badge-dark    { background: var(--color-forest); color: var(--color-mist); }
+.badge-mid     { background: var(--color-mid);    color: #ffffff; }
+.badge-success { background: #EAF3DE; color: var(--color-success); }
+.badge-warning { background: #FAEEDA; color: var(--color-warning); }
+.badge-danger  { background: #FCEBEB; color: var(--color-danger);  }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--color-soft);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-stone);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.navbar-link:hover { color: var(--color-primary); }
+
+/* ============================================================
+   TIPOGRAFIA DISPLAY
+   ============================================================ */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-forest);
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-forest);
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.2;
+  color: var(--color-forest);
+}
+
+/* ============================================================
+   HERO EYEBROW
+   ============================================================ */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--color-soft);
+  border: 1px solid var(--color-mist);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-stone);
+}
+
+/* ============================================================
+   DIVISOR
+   ============================================================ */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-soft);
+  margin-block: 2rem;
+}
