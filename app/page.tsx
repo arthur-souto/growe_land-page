@@ -5,9 +5,65 @@ import { FEATURES } from "./shared/features"
 import { STATS } from "./shared/stats"
 import { GroweIcon } from "./shared/growe.icon"
 import { LeadForm } from "./shared/lead-form"
+import { FaWhatsapp } from "react-icons/fa"
 
-export default function Home() {
+
+export default function Page() {
+
   const [navOpen, setNavOpen] = useState(false)
+  const WHATSAPP_NUMBER = "+555193953661"; // número real
+  const WHATSAPP_MESSAGE = encodeURIComponent(
+    "Oi! Quero participar do desenvolvimento da Growe 🌱"
+  );
+  const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+
+
+  const benefits = [
+    {
+      icon: (
+        <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
+          <path
+            d="M8 1.5L10 5.5L14.5 6.2L11.25 9.3L12 14L8 11.75L4 14L4.75 9.3L1.5 6.2L6 5.5L8 1.5Z"
+            fill="#27500A"
+          />
+        </svg>
+      ),
+      title: "Acesso exclusivo",
+      description: "Primeiros a testar cada funcionalidade",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
+          <circle cx="8" cy="6" r="3" fill="#27500A" />
+          <path
+            d="M2 13c0-2.8 2.7-5 6-5s6 2.2 6 5"
+            stroke="#27500A"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+      title: "Voz ativa",
+      description: "Suas sugestões moldam o produto",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
+          <rect x="2" y="2" width="12" height="12" rx="3" fill="#27500A" />
+          <path
+            d="M5 8l2 2 4-4"
+            stroke="#EAF3DE"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      title: "Sem compromisso",
+      description: "Participe no seu ritmo, quando quiser",
+    },
+  ];
+
   return (
     <div style={{ overflowX: "hidden" }}>
       <nav className="bg-white shadow-green-sm">
@@ -21,8 +77,8 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8">
             <a href="#como-funciona" className="text-(--color-forest) hover:text-(--color-mid) font-medium transition-colors">Como funciona</a>
             <a href="#funcionalidades" className="text-(--color-forest) hover:text-(--color-mid) font-medium transition-colors">Funcionalidades</a>
-            <a href="#cadastro" className="btn btn-soft btn-sm">Entrar em contato</a>
-            <a href="#cadastro" className="btn btn-primary btn-sm">Cadastrar</a>
+            <a href="#contato" className="btn btn-soft btn-sm">Entrar em contato</a>
+            <a href="#cadastro2" className="btn btn-primary btn-sm">Cadastrar</a>
           </div>
 
           {/* Mobile hamburger */}
@@ -48,8 +104,8 @@ export default function Home() {
           <div className="flex flex-col gap-3">
             <a href="#como-funciona" className="text-(--color-forest) hover:text-(--color-mid) font-medium">Como funciona</a>
             <a href="#funcionalidades" className="text-(--color-forest) hover:text-(--color-mid) font-medium">Funcionalidades</a>
-            <a href="#cadastro" className="btn btn-soft">Entrar em contato</a>
-            <a href="#cadastro" className="btn btn-primary">Cadastrar</a>
+            <a href="#contato" className="btn btn-soft">Entrar em contato</a>
+            <a href="#cadastro2" className="btn btn-primary">Cadastrar</a>
           </div>
         </div>
       </nav>
@@ -66,8 +122,8 @@ export default function Home() {
             <div>
               <span className="inline-flex items-center gap-2 text-(--color-primary) font-medium text-sm mb-2">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" stroke="var(--color-primary)" strokeWidth="1.5"/>
-                  <path d="M7 4v3l2 2" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round"/>
+                  <circle cx="7" cy="7" r="6" stroke="var(--color-primary)" strokeWidth="1.5" />
+                  <path d="M7 4v3l2 2" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 Acesso antecipado aberto
               </span>
@@ -122,6 +178,50 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/*Desempenho do funcionário */}
+      <section className="w-full py-12 px-6 bg-[var(--color-cloud)]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+          {/* TEXTO */}
+          <div>
+            <span className="hero-eyebrow">
+              Cultura que transforma
+            </span>
+
+            <h2 className="display-md mb-6">
+              Valorize quem realmente faz acontecer
+            </h2>
+
+            <p className="text-[var(--color-stone)] mb-6 text-lg leading-relaxed">
+              Empresas crescem quando reconhecem quem está todos os dias
+              construindo resultados de verdade. Funcionários dedicados,
+              comprometidos e proativos não devem passar despercebidos.
+            </p>
+
+            <p className="text-[var(--color-pebble)] mb-8">
+              Valorizar o esforço certo não é apenas justiça — é estratégia.
+              Ambientes que reconhecem talento geram mais produtividade,
+              mais engajamento e menos rotatividade.
+            </p>
+
+
+          </div>
+
+          {/* IMAGEM */}
+          <div className="relative">
+            <div className="absolute -inset-4 bg-[var(--color-soft)] rounded-[24px] blur-2xl opacity-60"></div>
+
+            <img
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692"
+              alt="Funcionário dedicado trabalhando"
+              className="relative rounded-[20px] shadow-[var(--shadow-green-lg)] object-cover w-full h-[420px]"
+            />
+          </div>
+
+        </div>
+      </section>
+
 
       {/* ── COMO FUNCIONA ── */}
       <section id="como-funciona" style={{ padding: "5rem 1.5rem", background: "var(--color-cloud)" }}>
@@ -260,7 +360,7 @@ export default function Home() {
                     marginTop: "2px",
                   }}>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 2l6 6M8 2L2 8" stroke="var(--color-danger)" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M2 2l6 6M8 2L2 8" stroke="var(--color-danger)" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </div>
                   <span style={{ fontSize: "0.9rem", color: "var(--color-stone)" }}>{item}</span>
@@ -295,7 +395,7 @@ export default function Home() {
                     marginTop: "2px",
                   }}>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5L8 2" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 5l2.5 2.5L8 2" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <span style={{ fontSize: "0.9rem", color: "var(--color-stone)" }}>{item}</span>
@@ -306,38 +406,174 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA FINAL ── */}
-      <section style={{
-        padding: "5rem 1.5rem",
-        background: "var(--color-forest)",
-        textAlign: "center",
-      }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <GroweIcon size={56} />
-          <h2 style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(2rem, 5vw, 3rem)",
-            color: "var(--color-soft)",
-            lineHeight: 1.2,
-            margin: "1.5rem 0 1rem",
-          }}>
-            Pronto para ver sua equipe crescer?
+
+
+      {/*whatsapp*/}
+      <section className="py-20 px-6 bg-[var(--color-cloud)]">
+        <div className="max-w-2xl mx-auto text-center">
+
+          {/* contato */}
+          <div id="contato" className="hero-eyebrow justify-center">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            Acesso antecipado
+          </div>
+
+          {/* Título */}
+          <h2 className={`
+            text-[#27500A] mb-4
+            transition-all duration-500 delay-100
+           
+          `}
+            style={{
+              fontFamily: "'DM Serif Display', Georgia, serif",
+              fontSize: "clamp(2rem, 5vw, 3rem)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Participe do{" "}
+            <em className="italic text-[#3B6D11]">desenvolvimento</em>
+            <br />
+            da ideia!
           </h2>
-          <p style={{
-            color: "var(--color-mist)",
-            fontSize: "1rem",
-            marginBottom: "2.5rem",
-            lineHeight: 1.7,
-          }}>
-            Entre na lista de espera e seja um dos primeiros a transformar a gestão de pessoas da sua empresa.
+
+          {/* Descrição */}
+          <p
+            className={`
+            text-[#3D4338] text-base leading-relaxed mb-10 
+            transition-all duration-500 delay-150 
+            
+          `}
+          >
+            Estamos construindo algo novo e queremos você nessa jornada desde o
+            início. Compartilhe suas ideias, dê feedback real e ajude a moldar uma
+            ferramenta feita para quem realmente importa — você.
           </p>
 
-          <div style={{
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(192,221,151,0.2)",
-            borderRadius: "20px",
-            padding: "2rem",
-          }}>
+
+          {/* Benefícios */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+            {benefits.map((b) => (
+              <div
+                key={b.title}
+                className="flex items-center gap-3 bg-[#EAF3DE] border border-[#C0DD97] rounded-[14px] p-4"
+              >
+                <div className="w-8 h-8 bg-[#97C459] rounded-lg flex items-center justify-center flex-shrink-0">
+                  {b.icon}
+                </div>
+
+                <div className="flex flex-col justify-center">
+                  <strong className="text-sm font-semibold text-[#27500A]">
+                    {b.title}
+                  </strong>
+                  <span className="text-xs text-[#639922]">
+                    {b.description}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <hr className="border-none border-t border-[#EAF3DE] mb-8" />
+
+          {/** CARD WHATSSAP */}
+          <div
+            className={`
+            bg-[#27500A] rounded-[20px] p-7
+            flex items-center justify-between gap-6 flex-wrap
+            transition-all duration-500 delay-300
+            
+          `}
+          >
+            <div >
+              <strong className="block text-[#EAF3DE] text-lg font-semibold mb-1">
+                Fale direto com a gente
+              </strong>
+              <span className="text-[#97C459] text-sm">
+                Resposta em até 24 horas
+              </span>
+            </div>
+
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+              inline-flex items-center gap-2.5
+              bg-[#25D366] hover:bg-[#1ebe5d]
+              text-white text-sm font-bold
+              px-6 py-3.5 rounded-full
+              transition-all duration-150
+              hover:-translate-y-0.5
+              active:scale-95
+              whitespace-nowrap flex-shrink-0
+            "
+            >
+              <FaWhatsapp />
+              Entrar no WhatsApp
+
+            </a>
+          </div>
+
+          {/* Confiança */}
+          <p className="text-xs text-[var(--color-pebble)] mt-6">
+            Sem spam. Somente conversas importantes sobre o projeto.
+          </p>
+
+        </div>
+      </section>
+
+
+      {/* ── CTA FINAL ── */}
+      <section id="cadastro2"
+        style={{
+          padding: "5rem 1.5rem",
+          background: "var(--color-forest)",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+
+          {/* Ícone centralizado */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <GroweIcon size={56} />
+          </div>
+
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2rem, 5vw, 3rem)",
+              color: "var(--color-soft)",
+              lineHeight: 1.2,
+              margin: "1.5rem 0 1rem",
+            }}
+          >
+            Pronto para ver sua equipe crescer?
+          </h2>
+
+          <p
+            style={{
+              color: "var(--color-mist)",
+              fontSize: "1rem",
+              marginBottom: "2.5rem",
+              lineHeight: 1.7,
+            }}
+          >
+            Entre na lista de espera...
+          </p>
+
+          <div
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(192,221,151,0.2)",
+              borderRadius: "20px",
+              padding: "2rem",
+            }}
+          >
             <LeadForm variant="cta" />
           </div>
         </div>
