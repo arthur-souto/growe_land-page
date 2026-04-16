@@ -127,10 +127,10 @@ export default function Page() {
                 </svg>
                 Acesso antecipado aberto
               </span>
-              <h1 className="text-4xl md:text-5xl font-normal mb-6 text-(--color-forest) leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xlfont-normal mb-6 text-(--color-forest) leading-tight">
                 Sua equipe cresce. <span className="italic text-(--color-mid)">Você enxerga.</span>
               </h1>
-              <p className="text-[1.125rem] text-(--color-stone) leading-relaxed mb-10 max-w-120">
+              <p className="text-[1.125rem] text-(--color-stone) leading-relaxed mb-10 max-w-xl">
                 Growe é a plataforma de avaliação e gestão de desempenho feita para pequenas e médias empresas brasileiras. Simples de usar, poderosa nos resultados.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -155,7 +155,7 @@ export default function Page() {
               </div>
             </div>
             {/* Formulário hero */}
-            <div id="cadastro" className="bg-white border border-(--color-mist) rounded-3xl p-8 shadow-green-lg">
+            <div id="cadastro" className="bg-white border border-(--color-mist) rounded-3xl p-5 sm:p-6 md:p-8shadow-green-lg">
               <div className="mb-6">
                 <GroweIcon size={48} />
                 <h2 className="font-(--font-display) text-xl text-(--color-forest) mt-4 mb-1">Entre na lista de espera</h2>
@@ -215,8 +215,7 @@ export default function Page() {
             <img
               src="https://images.unsplash.com/photo-1551434678-e076c223a692"
               alt="Funcionário dedicado trabalhando"
-              className="relative rounded-[20px] shadow-[var(--shadow-green-lg)] object-cover w-full h-[420px]"
-            />
+              className="relative rounded-[20px] shadow-[var(--shadow-green-lg)] object-cover w-full h-[260px] sm:h-[320px] md:h-[420px]" />
           </div>
 
         </div>
@@ -236,52 +235,51 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {STEPS.map((step, i) => (
-              <div key={i} style={{ position: "relative" }}>
-                {/* Linha conectora */}
-                {i < STEPS.length - 1 && (
-                  <div style={{
-                    position: "absolute",
-                    top: "1.75rem",
-                    right: "-0.75rem",
-                    width: "1.5rem",
-                    height: "1px",
-                    background: "var(--color-mist)",
-                    zIndex: 1,
-                  }} />
-                )}
-                <div className="card" style={{ height: "100%" }}>
-                  <div style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "var(--color-soft)",
-                    border: "1px solid var(--color-mist)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "1rem",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1rem",
-                    color: "var(--color-primary)",
-                  }}>
-                    {step.number}
-                  </div>
-                  <h3 style={{
-                    fontSize: "1rem",
-                    fontWeight: 600,
-                    color: "var(--color-forest)",
-                    marginBottom: "0.5rem",
-                  }}>
-                    {step.title}
-                  </h3>
-                  <p style={{ fontSize: "0.875rem", color: "var(--color-stone)", lineHeight: 1.6 }}>
-                    {step.description}
-                  </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">            {STEPS.map((step, i) => (
+            <div key={i} style={{ position: "relative" }}>
+              {/* Linha conectora */}
+              {i < STEPS.length - 1 && (
+                <div className="hidden md:block" style={{
+                  position: "absolute",
+                  top: "1.75rem",
+                  right: "-0.75rem",
+                  width: "1.5rem",
+                  height: "1px",
+                  background: "var(--color-mist)",
+                  zIndex: 1,
+                }} />
+              )}
+              <div className="card" style={{ height: "100%" }}>
+                <div style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  background: "var(--color-soft)",
+                  border: "1px solid var(--color-mist)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "1rem",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1rem",
+                  color: "var(--color-primary)",
+                }}>
+                  {step.number}
                 </div>
+                <h3 style={{
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "var(--color-forest)",
+                  marginBottom: "0.5rem",
+                }}>
+                  {step.title}
+                </h3>
+                <p style={{ fontSize: "0.875rem", color: "var(--color-stone)", lineHeight: 1.6 }}>
+                  {step.description}
+                </p>
               </div>
-            ))}
+            </div>
+          ))}
           </div>
         </div>
       </section>
@@ -455,21 +453,25 @@ export default function Page() {
 
 
           {/* Benefícios */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="flex items-center gap-3 bg-[#EAF3DE] border border-[#C0DD97] rounded-[14px] p-4"
+                className="
+        flex items-center gap-4
+        bg-[#EAF3DE] border border-[#C0DD97]
+        rounded-[16px] p-5
+      "
               >
-                <div className="w-8 h-8 bg-[#97C459] rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-[#97C459] rounded-xl flex items-center justify-center flex-shrink-0">
                   {b.icon}
                 </div>
 
-                <div className="flex flex-col justify-center">
-                  <strong className="text-sm font-semibold text-[#27500A]">
+                <div className="flex flex-col">
+                  <strong className="text-base font-semibold text-[#27500A] leading-tight">
                     {b.title}
                   </strong>
-                  <span className="text-xs text-[#639922]">
+                  <span className="text-sm text-[#639922] leading-snug">
                     {b.description}
                   </span>
                 </div>
@@ -482,14 +484,10 @@ export default function Page() {
 
           {/** CARD WHATSSAP */}
           <div
-            className={`
-            bg-[#27500A] rounded-[20px] p-7
-            flex items-center justify-between gap-6 flex-wrap
-            transition-all duration-500 delay-300
-            
-          `}
+            className=" bg-[#27500A] rounded-[20px] p-7
+            flex flex-col items-center justify-center text-center gap-4 "
           >
-            <div >
+            <div>
               <strong className="block text-[#EAF3DE] text-lg font-semibold mb-1">
                 Fale direto com a gente
               </strong>
@@ -503,19 +501,17 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-              inline-flex items-center gap-2.5
-              bg-[#25D366] hover:bg-[#1ebe5d]
-              text-white text-sm font-bold
-              px-6 py-3.5 rounded-full
-              transition-all duration-150
-              hover:-translate-y-0.5
-              active:scale-95
-              whitespace-nowrap flex-shrink-0
-            "
+      inline-flex items-center gap-2.5
+      bg-[#25D366] hover:bg-[#1ebe5d]
+      text-white text-sm font-bold
+      px-6 py-3.5 rounded-full
+      transition-all duration-150
+      hover:-translate-y-0.5
+      active:scale-95
+    "
             >
               <FaWhatsapp />
               Entrar no WhatsApp
-
             </a>
           </div>
 
@@ -580,7 +576,7 @@ export default function Page() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-6 px-6 bg-[var(--color-ink)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="py-6 px-6 bg-[var(--color-ink)] flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <GroweIcon size={28} />
           <span style={{
