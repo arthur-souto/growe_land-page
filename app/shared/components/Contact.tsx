@@ -51,60 +51,7 @@ export default function Contact() {
           ferramenta feita para quem realmente importa — você.
         </p>
 
-        {/* Benefícios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-          {benefits.map((b) => (
-            <div
-              key={b.title}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                background: "var(--color-soft)",
-                border: "1px solid var(--color-mist)",
-                borderRadius: "16px",
-                padding: "1.25rem",
-              }}
-            >
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  background: "var(--color-leaf)",
-                  borderRadius: "12px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                {b.icon}
-              </div>
-              <div className="flex flex-col">
-                <strong
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: 600,
-                    color: "var(--color-forest)",
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {b.title}
-                </strong>
-                <span
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--color-mid)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {b.description}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
+        
         <hr
           style={{
             border: "none",
@@ -118,7 +65,7 @@ export default function Contact() {
           style={{
             background: "var(--color-forest)",
             borderRadius: "20px",
-            padding: "1.75rem",
+            padding: "1.10rem",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -131,8 +78,8 @@ export default function Contact() {
             <strong
               style={{
                 display: "block",
-                color: "var(--color-soft)",
-                fontSize: "1.125rem",
+                 color: "var(--color-navy)",
+                 fontSize: "1.125rem",
                 fontWeight: 600,
                 marginBottom: "0.25rem",
               }}
@@ -162,7 +109,7 @@ export default function Contact() {
           style={{
             fontSize: "0.75rem",
             color: "var(--color-pebble)",
-            marginTop: "1.5rem",
+            marginTop: "1.2rem",
           }}
         >
           Sem spam. Somente conversas importantes sobre o projeto.

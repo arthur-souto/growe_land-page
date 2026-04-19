@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@variant dark (&:where(.dark, .dark *));
 /* ============================================================
    GROWE — Design System v2.0  (Sales Edition)
    Tailwind v4 — sem @apply
@@ -12,40 +11,40 @@
   --font-sans:    'Plus Jakarta Sans', sans-serif;
   --font-mono:    var(--font-geist-mono);
 
-  /* ── Paleta Growe ── */
-  --color-forest:  #1E4008;
-  --color-primary: #2F5C0C;
-  --color-mid:     #4F8018;
-  --color-leaf:    #82B847;
-  --color-mist:    #B3D484;
-  --color-soft:    #E6F2D6;
+  /* ── Paleta Growe (Azul) ── */
+  --color-navy:    #132138;
+  --color-primary: #1E3A6E;
+  --color-mid:     #274367;
+  --color-sky:     #4A7AB5;
+  --color-mist:    #99BAE6;
+  --color-soft:    #D6E8F7;
 
   /* Neutros */
-  --color-ink:    #111710;
-  --color-stone:  #2E3329;
-  --color-pebble: #6B7363;
-  --color-cloud:  #F0F4EB;
+  --color-ink:    #0D1520;
+  --color-stone:  #1F2D42;
+  --color-pebble: #5C6E87;
+  --color-cloud:  #EBF2FA;
 
   /* Semânticas */
-  --color-success: #2F5C0C;
+  --color-success: #1A6B44;
   --color-warning: #A86510;
   --color-danger:  #8F2323;
-  --color-info:    #144E8F;
+  --color-info:    #1E3A6E;
 
   /* Background */
   --color-background: #ffffff;
-  --color-foreground: #111710;
+  --color-foreground: #0D1520;
 
   /* Sombras */
-  --shadow-green-sm: 0 1px 4px rgba(30, 64, 8, 0.10);
-  --shadow-green-md: 0 4px 20px rgba(30, 64, 8, 0.13);
-  --shadow-green-lg: 0 10px 40px rgba(30, 64, 8, 0.18);
+  --shadow-blue-sm: 0 1px 4px rgba(19, 33, 56, 0.10);
+  --shadow-blue-md: 0 4px 20px rgba(19, 33, 56, 0.13);
+  --shadow-blue-lg: 0 10px 40px rgba(19, 33, 56, 0.18);
 
   /* ── Tokens de conversão ── */
-  --color-cta:              #1E8A3C;
-  --color-cta-hover:        #166B2E;
-  --color-cta-glow:         rgba(30, 138, 60, 0.28);
-  --color-trust:            #F5F9F0;
+  --color-cta:              #1A56A8;
+  --color-cta-hover:        #13407F;
+  --color-cta-glow:         rgba(26, 86, 168, 0.28);
+  --color-trust:            #F0F5FB;
   --color-highlight:        #FFF8E1;
   --color-highlight-border: #F0C040;
 }
@@ -55,43 +54,7 @@
    ============================================================ */
 :root {
   --background: #ffffff;
-  --foreground: #111710;
-}
-
-html.dark {
-  --background: #080F04;
-  --foreground: #E6F2D6;
-
-  --color-forest:  #7DB843;
-  --color-primary: #93C054;
-  --color-mid:     #5A8A1F;
-  --color-leaf:    #93C054;
-  --color-mist:    #253818;
-  --color-soft:    #182810;
-
-  --color-ink:    #E6F2D6;
-  --color-stone:  #B3D484;
-  --color-pebble: #6B7A5E;
-  --color-cloud:  #0D1A08;
-
-  --color-success: #7DB843;
-  --color-warning: #D99830;
-  --color-danger:  #D46060;
-  --color-info:    #4E8FD4;
-
-  --color-background: #080F04;
-  --color-foreground: #E6F2D6;
-
-  --shadow-green-sm: 0 1px 4px rgba(0, 0, 0, 0.45);
-  --shadow-green-md: 0 4px 20px rgba(0, 0, 0, 0.55);
-  --shadow-green-lg: 0 10px 40px rgba(0, 0, 0, 0.65);
-
-  --color-cta:              #3AAD5C;
-  --color-cta-hover:        #2E8A48;
-  --color-cta-glow:         rgba(58, 173, 92, 0.25);
-  --color-trust:            #0D1A08;
-  --color-highlight:        #2A200A;
-  --color-highlight-border: #8A6A10;
+  --foreground: #0D1520;
 }
 
 html {
@@ -131,7 +94,6 @@ body {
   position: relative;
 }
 
-/* CTA — botão principal de conversão */
 .btn-cta {
   background: var(--color-cta);
   color: #ffffff;
@@ -156,13 +118,13 @@ body {
   background: var(--color-primary);
   color: #ffffff;
   border-color: var(--color-primary);
-  box-shadow: 0 2px 8px rgba(30, 64, 8, 0.15);
+  box-shadow: 0 2px 8px rgba(19, 33, 56, 0.15);
 }
 .btn-primary:hover {
-  background: var(--color-forest);
-  border-color: var(--color-forest);
+  background: var(--color-navy);
+  border-color: var(--color-navy);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-green-md);
+  box-shadow: var(--shadow-blue-md);
 }
 .btn-primary:active { transform: translateY(0); }
 
@@ -173,12 +135,12 @@ body {
 }
 .btn-outline:hover {
   background: var(--color-soft);
-  color: var(--color-forest);
+  color: var(--color-navy);
 }
 
 .btn-soft {
   background: var(--color-soft);
-  color: var(--color-forest);
+  color: var(--color-navy);
   border-color: var(--color-mist);
 }
 .btn-soft:hover {
@@ -200,7 +162,6 @@ body {
 .btn-lg  { padding: 1rem 2.25rem;     font-size: 1rem; }
 .btn-xl  { padding: 1.25rem 2.75rem;  font-size: 1.125rem; font-weight: 700; }
 
-/* Anel de pulso — adicione em btn-cta para urgência */
 .btn-pulse::after {
   content: '';
   position: absolute;
@@ -215,10 +176,6 @@ body {
   100% { opacity: 0;   transform: scale(1.18); }
 }
 
-.dark .btn-primary       { color: #080F04; }
-.dark .btn-primary:hover { background: #C8E09A; border-color: #C8E09A; color: #080F04; }
-.dark .btn-cta           { color: #080F04; }
-
 /* ============================================================
    CARDS
    ============================================================ */
@@ -230,12 +187,11 @@ body {
   transition: all 200ms ease;
 }
 .card:hover {
-  box-shadow: var(--shadow-green-md);
+  box-shadow: var(--shadow-blue-md);
   transform: translateY(-3px);
-  border-color: var(--color-leaf);
+  border-color: var(--color-sky);
 }
 
-/* Card destacado para o plano/feature mais importante */
 .card-featured {
   background: #ffffff;
   border: 2px solid var(--color-cta);
@@ -246,7 +202,7 @@ body {
   box-shadow: 0 0 0 4px var(--color-cta-glow);
 }
 .card-featured:hover {
-  box-shadow: 0 0 0 6px var(--color-cta-glow), var(--shadow-green-md);
+  box-shadow: 0 0 0 6px var(--color-cta-glow), var(--shadow-blue-md);
   transform: translateY(-3px);
 }
 
@@ -257,14 +213,13 @@ body {
   padding: 1.5rem;
 }
 
-.card-forest {
-  background: var(--color-forest);
+.card-navy {
+  background: var(--color-navy);
   border-radius: 20px;
   padding: 1.5rem;
   color: #ffffff;
 }
 
-/* Card de depoimento */
 .card-testimonial {
   background: var(--color-trust);
   border: 1px solid var(--color-mist);
@@ -273,16 +228,9 @@ body {
   transition: all 200ms ease;
 }
 .card-testimonial:hover {
-  box-shadow: var(--shadow-green-sm);
+  box-shadow: var(--shadow-blue-sm);
   transform: translateY(-2px);
 }
-
-.dark .card              { background: #10200A; border-color: #253818; }
-.dark .card:hover        { border-color: #5A8A1F; }
-.dark .card-featured     { background: #10200A; border-color: var(--color-cta); }
-.dark .card-soft         { background: #182810; border-color: #253818; }
-.dark .card-forest       { background: #182810; color: #E6F2D6; }
-.dark .card-testimonial  { background: #0D1A08; border-color: #253818; }
 
 /* ============================================================
    INPUTS
@@ -300,10 +248,10 @@ body {
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 .input::placeholder { color: var(--color-pebble); }
-.input:hover  { border-color: var(--color-leaf); }
+.input:hover  { border-color: var(--color-sky); }
 .input:focus  {
   border-color: var(--color-cta);
-  box-shadow: 0 0 0 3px rgba(30, 138, 60, 0.14);
+  box-shadow: 0 0 0 3px rgba(26, 86, 168, 0.14);
 }
 
 .input-lg {
@@ -311,10 +259,6 @@ body {
   font-size: 1.125rem;
   border-radius: 12px;
 }
-
-.dark .input        { background: #080F04; color: #E6F2D6; border-color: #253818; }
-.dark .input:hover  { border-color: #5A8A1F; }
-.dark .input:focus  { border-color: var(--color-cta); box-shadow: 0 0 0 3px rgba(58, 173, 92, 0.15); }
 
 /* ============================================================
    BADGES
@@ -331,14 +275,13 @@ body {
   letter-spacing: 0.02em;
 }
 
-.badge-primary { background: var(--color-soft);  color: var(--color-forest); border: 1px solid var(--color-mist); }
-.badge-dark    { background: var(--color-forest); color: var(--color-mist); }
+.badge-primary { background: var(--color-soft);  color: var(--color-navy);  border: 1px solid var(--color-mist); }
+.badge-dark    { background: var(--color-navy);   color: var(--color-mist); }
 .badge-mid     { background: var(--color-mid);    color: #ffffff; }
-.badge-success { background: #E6F2D6; color: var(--color-success); }
+.badge-success { background: #D6F0E6; color: var(--color-success); }
 .badge-warning { background: #FDF0DC; color: var(--color-warning); }
 .badge-danger  { background: #FBECEC; color: var(--color-danger);  }
 
-/* Badge piscante para urgência */
 .badge-urgent {
   background: var(--color-highlight);
   color: #92650A;
@@ -350,22 +293,12 @@ body {
   50%       { opacity: 0.72; }
 }
 
-/* Badge "Novo" / "Beta" */
 .badge-new {
   background: var(--color-cta);
   color: #ffffff;
   font-size: 0.65rem;
   padding: 0.2rem 0.6rem;
 }
-
-.dark .badge-primary { background: #182810; color: #93C054; border-color: #253818; }
-.dark .badge-dark    { background: #253818; color: #B3D484; }
-.dark .badge-mid     { background: #253818; color: #93C054; }
-.dark .badge-success { background: #182810; color: #7DB843; }
-.dark .badge-warning { background: #241A06; color: #D99830; }
-.dark .badge-danger  { background: #1E0808; color: #D46060; }
-.dark .badge-urgent  { background: #2A200A; color: #D99830; border-color: #8A6A10; }
-.dark .badge-new     { background: #3AAD5C; color: #080F04; }
 
 /* ============================================================
    NAVBAR
@@ -393,10 +326,6 @@ body {
 }
 .navbar-link:hover { color: var(--color-primary); }
 
-.dark .navbar              { background: rgba(8, 15, 4, 0.92); border-bottom-color: #182810; }
-.dark .navbar-link         { color: #B3D484; }
-.dark .navbar-link:hover   { color: #93C054; }
-
 /* ============================================================
    TIPOGRAFIA DISPLAY
    ============================================================ */
@@ -405,7 +334,7 @@ body {
   font-size: clamp(2.75rem, 6.5vw, 5rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
-  color: var(--color-forest);
+  color: var(--color-navy);
 }
 
 .display-lg {
@@ -413,7 +342,7 @@ body {
   font-size: clamp(2.25rem, 5vw, 4rem);
   line-height: 1.12;
   letter-spacing: -0.025em;
-  color: var(--color-forest);
+  color: var(--color-navy);
 }
 
 .display-md {
@@ -421,10 +350,9 @@ body {
   font-size: clamp(1.875rem, 4vw, 3.25rem);
   line-height: 1.18;
   letter-spacing: -0.02em;
-  color: var(--color-forest);
+  color: var(--color-navy);
 }
 
-/* Trecho em destaque dentro de headings */
 .display-accent {
   color: var(--color-cta);
   font-style: italic;
@@ -469,8 +397,6 @@ body {
 /* ============================================================
    PROVA SOCIAL
    ============================================================ */
-
-/* Avaliação com estrelas */
 .rating-bar {
   display: inline-flex;
   align-items: center;
@@ -481,26 +407,23 @@ body {
 }
 .rating-stars { color: #F59E0B; letter-spacing: -0.05em; }
 
-/* Avatares empilhados */
 .avatar-stack { display: inline-flex; }
 .avatar-stack .avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  background: var(--color-leaf);
+  background: var(--color-sky);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.65rem;
   font-weight: 700;
-  color: var(--color-forest);
+  color: var(--color-navy);
   margin-left: -8px;
 }
 .avatar-stack .avatar:first-child { margin-left: 0; }
-.dark .avatar-stack .avatar { border-color: #080F04; }
 
-/* Contador ao vivo */
 .live-counter {
   display: inline-flex;
   align-items: center;
@@ -511,7 +434,7 @@ body {
   border-radius: 9999px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-forest);
+  color: var(--color-navy);
 }
 .live-dot {
   width: 8px;
@@ -540,7 +463,6 @@ body {
   font-weight: 600;
   color: #7A4F00;
 }
-.dark .urgency-bar { background: #2A200A; border-color: #8A6A10; color: #D99830; }
 
 /* ============================================================
    TRUST STRIP
@@ -572,7 +494,6 @@ body {
   color: var(--color-stone);
   line-height: 1.6;
 }
-.dark .pull-quote { background: #182810; }
 
 /* ============================================================
    PRICING CARD
@@ -586,24 +507,21 @@ body {
 }
 .pricing-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-green-lg);
+  box-shadow: var(--shadow-blue-lg);
 }
 .pricing-card-featured {
-  background: var(--color-forest);
-  border-color: var(--color-forest);
+  background: var(--color-navy);
+  border-color: var(--color-navy);
   color: #ffffff;
 }
 .pricing-price {
   font-family: var(--font-display);
   font-size: 3rem;
   line-height: 1;
-  color: var(--color-forest);
+  color: var(--color-navy);
   letter-spacing: -0.03em;
 }
-.pricing-card-featured .pricing-price { color: var(--color-leaf); }
-
-.dark .pricing-card          { background: #10200A; border-color: #253818; }
-.dark .pricing-card-featured { background: #1A3010; border-color: #3AAD5C; }
+.pricing-card-featured .pricing-price { color: var(--color-mist); }
 
 /* ============================================================
    DIVISOR
