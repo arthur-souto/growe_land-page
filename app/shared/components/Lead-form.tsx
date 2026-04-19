@@ -1,5 +1,6 @@
+'use client'
 import { useState } from "react"
-import { supabase } from "../lib/supabase.client"
+import { supabase } from "../../lib/supabase.client"
 
 export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
   const [nome, setNome] = useState("")
@@ -14,8 +15,8 @@ export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
 
     setStatus("loading")
     try {
-      const {data, error} = await supabase.from("leads")
-      .insert({ nome, email, empresa }).select().single()
+      const { data, error } = await supabase.from("leads")
+        .insert({ nome, email, empresa }).select().single()
       if (error) throw error
       console.log("Lead inserido:", data)
       setStatus("success")

@@ -1,6 +1,7 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 /* ============================================================
-   GROWE — Design System v1.0
+   GROWE — Design System v2.0  (Sales Edition)
    Tailwind v4 — sem @apply
    ============================================================ */
 
@@ -12,33 +13,41 @@
   --font-mono:    var(--font-geist-mono);
 
   /* ── Paleta Growe ── */
-  --color-forest:  #27500A;
-  --color-primary: #3B6D11;
-  --color-mid:     #639922;
-  --color-leaf:    #97C459;
-  --color-mist:    #C0DD97;
-  --color-soft:    #EAF3DE;
+  --color-forest:  #1E4008;
+  --color-primary: #2F5C0C;
+  --color-mid:     #4F8018;
+  --color-leaf:    #82B847;
+  --color-mist:    #B3D484;
+  --color-soft:    #E6F2D6;
 
   /* Neutros */
-  --color-ink:    #1A1F17;
-  --color-stone:  #3D4338;
-  --color-pebble: #7A8370;
-  --color-cloud:  #F4F6F1;
+  --color-ink:    #111710;
+  --color-stone:  #2E3329;
+  --color-pebble: #6B7363;
+  --color-cloud:  #F0F4EB;
 
   /* Semânticas */
-  --color-success: #3B6D11;
-  --color-warning: #BA7517;
-  --color-danger:  #A32D2D;
-  --color-info:    #185FA5;
+  --color-success: #2F5C0C;
+  --color-warning: #A86510;
+  --color-danger:  #8F2323;
+  --color-info:    #144E8F;
 
-  /* Background padrão */
+  /* Background */
   --color-background: #ffffff;
-  --color-foreground: #1A1F17;
+  --color-foreground: #111710;
 
   /* Sombras */
-  --shadow-green-sm: 0 1px 3px rgba(39, 80, 10, 0.08);
-  --shadow-green-md: 0 4px 16px rgba(39, 80, 10, 0.10);
-  --shadow-green-lg: 0 8px 32px rgba(39, 80, 10, 0.14);
+  --shadow-green-sm: 0 1px 4px rgba(30, 64, 8, 0.10);
+  --shadow-green-md: 0 4px 20px rgba(30, 64, 8, 0.13);
+  --shadow-green-lg: 0 10px 40px rgba(30, 64, 8, 0.18);
+
+  /* ── Tokens de conversão ── */
+  --color-cta:              #1E8A3C;
+  --color-cta-hover:        #166B2E;
+  --color-cta-glow:         rgba(30, 138, 60, 0.28);
+  --color-trust:            #F5F9F0;
+  --color-highlight:        #FFF8E1;
+  --color-highlight-border: #F0C040;
 }
 
 /* ============================================================
@@ -46,14 +55,43 @@
    ============================================================ */
 :root {
   --background: #ffffff;
-  --foreground: #1A1F17;
+  --foreground: #111710;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f1a0a;
-    --foreground: #EAF3DE;
-  }
+html.dark {
+  --background: #080F04;
+  --foreground: #E6F2D6;
+
+  --color-forest:  #7DB843;
+  --color-primary: #93C054;
+  --color-mid:     #5A8A1F;
+  --color-leaf:    #93C054;
+  --color-mist:    #253818;
+  --color-soft:    #182810;
+
+  --color-ink:    #E6F2D6;
+  --color-stone:  #B3D484;
+  --color-pebble: #6B7A5E;
+  --color-cloud:  #0D1A08;
+
+  --color-success: #7DB843;
+  --color-warning: #D99830;
+  --color-danger:  #D46060;
+  --color-info:    #4E8FD4;
+
+  --color-background: #080F04;
+  --color-foreground: #E6F2D6;
+
+  --shadow-green-sm: 0 1px 4px rgba(0, 0, 0, 0.45);
+  --shadow-green-md: 0 4px 20px rgba(0, 0, 0, 0.55);
+  --shadow-green-lg: 0 10px 40px rgba(0, 0, 0, 0.65);
+
+  --color-cta:              #3AAD5C;
+  --color-cta-hover:        #2E8A48;
+  --color-cta-glow:         rgba(58, 173, 92, 0.25);
+  --color-trust:            #0D1A08;
+  --color-highlight:        #2A200A;
+  --color-highlight-border: #8A6A10;
 }
 
 html {
@@ -71,7 +109,7 @@ body {
 }
 
 /* ============================================================
-   BOTÕES
+   BOTÕES — Sales-grade
    ============================================================ */
 .btn {
   display: inline-flex;
@@ -83,18 +121,42 @@ body {
   border: 1.5px solid transparent;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   line-height: 1;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
-  transition: all 200ms ease;
+  transition: all 180ms ease;
+  position: relative;
+}
+
+/* CTA — botão principal de conversão */
+.btn-cta {
+  background: var(--color-cta);
+  color: #ffffff;
+  border-color: var(--color-cta);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2.25rem;
+  box-shadow: 0 4px 14px var(--color-cta-glow);
+}
+.btn-cta:hover {
+  background: var(--color-cta-hover);
+  border-color: var(--color-cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px var(--color-cta-glow);
+}
+.btn-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--color-cta-glow);
 }
 
 .btn-primary {
   background: var(--color-primary);
   color: #ffffff;
   border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(30, 64, 8, 0.15);
 }
 .btn-primary:hover {
   background: var(--color-forest);
@@ -102,6 +164,7 @@ body {
   transform: translateY(-1px);
   box-shadow: var(--shadow-green-md);
 }
+.btn-primary:active { transform: translateY(0); }
 
 .btn-outline {
   background: transparent;
@@ -133,9 +196,28 @@ body {
   color: var(--color-primary);
 }
 
-.btn-sm { padding: 0.5rem 1.25rem;   font-size: 0.75rem; }
-.btn-lg { padding: 1rem 2.25rem;     font-size: 1rem; }
-.btn-xl { padding: 1.125rem 2.75rem; font-size: 1.125rem; }
+.btn-sm  { padding: 0.5rem 1.25rem;   font-size: 0.75rem; }
+.btn-lg  { padding: 1rem 2.25rem;     font-size: 1rem; }
+.btn-xl  { padding: 1.25rem 2.75rem;  font-size: 1.125rem; font-weight: 700; }
+
+/* Anel de pulso — adicione em btn-cta para urgência */
+.btn-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-cta);
+  opacity: 0;
+  animation: btn-ring 2.2s ease-out infinite;
+}
+@keyframes btn-ring {
+  0%   { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0;   transform: scale(1.18); }
+}
+
+.dark .btn-primary       { color: #080F04; }
+.dark .btn-primary:hover { background: #C8E09A; border-color: #C8E09A; color: #080F04; }
+.dark .btn-cta           { color: #080F04; }
 
 /* ============================================================
    CARDS
@@ -149,8 +231,23 @@ body {
 }
 .card:hover {
   box-shadow: var(--shadow-green-md);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--color-leaf);
+}
+
+/* Card destacado para o plano/feature mais importante */
+.card-featured {
+  background: #ffffff;
+  border: 2px solid var(--color-cta);
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 200ms ease;
+  box-shadow: 0 0 0 4px var(--color-cta-glow);
+}
+.card-featured:hover {
+  box-shadow: 0 0 0 6px var(--color-cta-glow), var(--shadow-green-md);
+  transform: translateY(-3px);
 }
 
 .card-soft {
@@ -167,26 +264,46 @@ body {
   color: #ffffff;
 }
 
+/* Card de depoimento */
+.card-testimonial {
+  background: var(--color-trust);
+  border: 1px solid var(--color-mist);
+  border-radius: 20px;
+  padding: 1.75rem;
+  transition: all 200ms ease;
+}
+.card-testimonial:hover {
+  box-shadow: var(--shadow-green-sm);
+  transform: translateY(-2px);
+}
+
+.dark .card              { background: #10200A; border-color: #253818; }
+.dark .card:hover        { border-color: #5A8A1F; }
+.dark .card-featured     { background: #10200A; border-color: var(--color-cta); }
+.dark .card-soft         { background: #182810; border-color: #253818; }
+.dark .card-forest       { background: #182810; color: #E6F2D6; }
+.dark .card-testimonial  { background: #0D1A08; border-color: #253818; }
+
 /* ============================================================
    INPUTS
    ============================================================ */
 .input {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1.125rem;
   font-family: var(--font-sans);
   font-size: 1rem;
   color: var(--color-ink);
   background: #ffffff;
   border: 1.5px solid var(--color-mist);
-  border-radius: 8px;
+  border-radius: 10px;
   outline: none;
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 .input::placeholder { color: var(--color-pebble); }
 .input:hover  { border-color: var(--color-leaf); }
 .input:focus  {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(59, 109, 17, 0.12);
+  border-color: var(--color-cta);
+  box-shadow: 0 0 0 3px rgba(30, 138, 60, 0.14);
 }
 
 .input-lg {
@@ -194,6 +311,10 @@ body {
   font-size: 1.125rem;
   border-radius: 12px;
 }
+
+.dark .input        { background: #080F04; color: #E6F2D6; border-color: #253818; }
+.dark .input:hover  { border-color: #5A8A1F; }
+.dark .input:focus  { border-color: var(--color-cta); box-shadow: 0 0 0 3px rgba(58, 173, 92, 0.15); }
 
 /* ============================================================
    BADGES
@@ -204,17 +325,47 @@ body {
   gap: 0.25rem;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 9999px;
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .badge-primary { background: var(--color-soft);  color: var(--color-forest); border: 1px solid var(--color-mist); }
 .badge-dark    { background: var(--color-forest); color: var(--color-mist); }
 .badge-mid     { background: var(--color-mid);    color: #ffffff; }
-.badge-success { background: #EAF3DE; color: var(--color-success); }
-.badge-warning { background: #FAEEDA; color: var(--color-warning); }
-.badge-danger  { background: #FCEBEB; color: var(--color-danger);  }
+.badge-success { background: #E6F2D6; color: var(--color-success); }
+.badge-warning { background: #FDF0DC; color: var(--color-warning); }
+.badge-danger  { background: #FBECEC; color: var(--color-danger);  }
+
+/* Badge piscante para urgência */
+.badge-urgent {
+  background: var(--color-highlight);
+  color: #92650A;
+  border: 1px solid var(--color-highlight-border);
+  animation: badge-pulse 2.5s ease-in-out infinite;
+}
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.72; }
+}
+
+/* Badge "Novo" / "Beta" */
+.badge-new {
+  background: var(--color-cta);
+  color: #ffffff;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.dark .badge-primary { background: #182810; color: #93C054; border-color: #253818; }
+.dark .badge-dark    { background: #253818; color: #B3D484; }
+.dark .badge-mid     { background: #253818; color: #93C054; }
+.dark .badge-success { background: #182810; color: #7DB843; }
+.dark .badge-warning { background: #241A06; color: #D99830; }
+.dark .badge-danger  { background: #1E0808; color: #D46060; }
+.dark .badge-urgent  { background: #2A200A; color: #D99830; border-color: #8A6A10; }
+.dark .badge-new     { background: #3AAD5C; color: #080F04; }
 
 /* ============================================================
    NAVBAR
@@ -223,8 +374,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background: #ffffff;
+  padding: 0.875rem 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-soft);
   position: sticky;
   top: 0;
@@ -240,30 +393,41 @@ body {
 }
 .navbar-link:hover { color: var(--color-primary); }
 
+.dark .navbar              { background: rgba(8, 15, 4, 0.92); border-bottom-color: #182810; }
+.dark .navbar-link         { color: #B3D484; }
+.dark .navbar-link:hover   { color: #93C054; }
+
 /* ============================================================
    TIPOGRAFIA DISPLAY
    ============================================================ */
 .display-xl {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.75rem, 6.5vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: var(--color-forest);
 }
 
 .display-lg {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--color-forest);
 }
 
 .display-md {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  line-height: 1.2;
+  font-size: clamp(1.875rem, 4vw, 3.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
   color: var(--color-forest);
+}
+
+/* Trecho em destaque dentro de headings */
+.display-accent {
+  color: var(--color-cta);
+  font-style: italic;
 }
 
 /* ============================================================
@@ -273,13 +437,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1.5rem;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.25rem;
   background: var(--color-soft);
   border: 1px solid var(--color-mist);
   border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--color-primary);
 }
 
@@ -288,10 +454,10 @@ body {
    ============================================================ */
 .stat-value {
   font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   color: var(--color-primary);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem;
 }
 
 .stat-label {
@@ -299,6 +465,145 @@ body {
   font-weight: 500;
   color: var(--color-stone);
 }
+
+/* ============================================================
+   PROVA SOCIAL
+   ============================================================ */
+
+/* Avaliação com estrelas */
+.rating-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-stone);
+}
+.rating-stars { color: #F59E0B; letter-spacing: -0.05em; }
+
+/* Avatares empilhados */
+.avatar-stack { display: inline-flex; }
+.avatar-stack .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: var(--color-leaf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-left: -8px;
+}
+.avatar-stack .avatar:first-child { margin-left: 0; }
+.dark .avatar-stack .avatar { border-color: #080F04; }
+
+/* Contador ao vivo */
+.live-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-soft);
+  border: 1px solid var(--color-mist);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-forest);
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-cta);
+  animation: live-blink 1.4s ease-in-out infinite;
+}
+@keyframes live-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ============================================================
+   URGÊNCIA
+   ============================================================ */
+.urgency-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--color-highlight);
+  border: 1px solid var(--color-highlight-border);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #7A4F00;
+}
+.dark .urgency-bar { background: #2A200A; border-color: #8A6A10; color: #D99830; }
+
+/* ============================================================
+   TRUST STRIP
+   ============================================================ */
+.trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-pebble);
+}
+.trust-strip-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--color-mist);
+}
+
+/* ============================================================
+   PULL QUOTE
+   ============================================================ */
+.pull-quote {
+  border-left: 3px solid var(--color-cta);
+  padding: 0.875rem 1.25rem;
+  background: var(--color-soft);
+  border-radius: 0 12px 12px 0;
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--color-stone);
+  line-height: 1.6;
+}
+.dark .pull-quote { background: #182810; }
+
+/* ============================================================
+   PRICING CARD
+   ============================================================ */
+.pricing-card {
+  background: #ffffff;
+  border: 1.5px solid var(--color-mist);
+  border-radius: 24px;
+  padding: 2rem;
+  transition: all 200ms ease;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-green-lg);
+}
+.pricing-card-featured {
+  background: var(--color-forest);
+  border-color: var(--color-forest);
+  color: #ffffff;
+}
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-forest);
+  letter-spacing: -0.03em;
+}
+.pricing-card-featured .pricing-price { color: var(--color-leaf); }
+
+.dark .pricing-card          { background: #10200A; border-color: #253818; }
+.dark .pricing-card-featured { background: #1A3010; border-color: #3AAD5C; }
 
 /* ============================================================
    DIVISOR
