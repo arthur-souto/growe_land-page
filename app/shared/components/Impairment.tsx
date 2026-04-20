@@ -7,7 +7,7 @@ export default function Impairment() {
             {/* gradiente sobre a imagem */}
             <div className="absolute inset-0 bg-gradient-to-r from-(--color-navy) via-(--color-navy)/75 to-transparent" />
 
-            <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="max-w-xl">
                     <span className="hero-eyebrow">Cultura que transforma</span>
                     <h2 className="text-5xl font-bold text-white mb-6">
