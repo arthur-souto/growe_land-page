@@ -6,6 +6,7 @@ export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [empresa, setEmpresa] = useState("")
+  const [feedback, setProblem] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
 
@@ -16,12 +17,12 @@ export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
     setStatus("loading")
     try {
       const { data, error } = await supabase.from("leads")
-        .insert({ nome, email, empresa }).select().single()
+        .insert({ nome, email, empresa, feedback }).select().single()
       if (error) throw error
       console.log("Lead inserido:", data)
       setStatus("success")
       setMessage("Ótimo! Você entrou na lista. Avisaremos assim que abrirmos o acesso.")
-      setNome(""); setEmail(""); setEmpresa("")
+      setNome(""); setEmail(""); setEmpresa(""); setProblem("")
     } catch {
       setStatus("error")
       setMessage("Algo deu errado. Tente novamente.")
@@ -74,6 +75,13 @@ export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
         onChange={e => setEmpresa(e.target.value)}
         aria-label="Empresa"
       />
+      <textarea
+        className="input"
+        placeholder="Qual é sua maior dificuldade hoje com avaliação de equipe?"
+        value={feedback}
+        onChange={e => setProblem(e.target.value)}
+        aria-label="Problema"
+      />
       <button
         type="submit"
         className="btn btn-primary btn-lg"
@@ -85,9 +93,7 @@ export function LeadForm({ variant = "hero" }: { variant?: "hero" | "cta" }) {
       {status === "error" && (
         <p style={{ fontSize: "0.8rem", color: "var(--color-danger)", textAlign: "center" }}>{message}</p>
       )}
-      <p style={{ fontSize: "0.75rem", color: "var(--color-pebble)", textAlign: "center" }}>
-        Sem spam. Sem cartão de crédito. Cancele quando quiser.
-      </p>
+
     </form>
   )
 }
