@@ -11,11 +11,10 @@ export default function Solution() {
       <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle, rgba(74,122,181,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "-60px", left: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(74,122,181,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-      {/* 🔥 GRID AJUSTADO */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-16 items-stretch">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-16 items-stretch">
 
-        {/* 🔻 PROBLEMA */}
-        <div className="pr-6">
+        {/* PROBLEMA */}
+        <div className="md:pr-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "rgba(143,35,35,0.2)", border: "1px solid rgba(240,149,149,0.3)" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
             <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#F09595" }}>
@@ -46,11 +45,12 @@ export default function Solution() {
           </div>
         </div>
 
-        {/* 🔥 LINHA DIVISÓRIA */}
+        {/* DIVISOR */}
+        <div className="block md:hidden w-full h-px bg-white/10 my-2" />
         <div className="hidden md:block w-px bg-white/10" />
 
-        {/* 🔻 SOLUÇÃO */}
-        <div className="pl-6">
+        {/* SOLUÇÃO */}
+        <div className="md:pl-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "rgba(26,86,168,0.3)", border: "1px solid rgba(74,122,181,0.4)" }}>
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--color-mist)" }} />
             <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--color-mist)" }}>

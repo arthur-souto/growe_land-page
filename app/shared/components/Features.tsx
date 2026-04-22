@@ -33,7 +33,7 @@ export default function Features() {
               }}>
                 {feature.icon}
               </div>
-<h3 style={{ fontSize: "1rem", fontWeight: 600, color: "var(--color-navy)", marginBottom: "0.5rem" }}>                {feature.title}
+              <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "var(--color-navy)", marginBottom: "0.5rem" }}>                {feature.title}
               </h3>
               <p style={{ fontSize: "0.875rem", color: "var(--color-stone)", lineHeight: 1.7 }}>
                 {feature.description}
