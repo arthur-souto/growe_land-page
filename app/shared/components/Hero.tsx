@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { LeadForm } from "./Lead-form";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const WHATSAPP_NUMBER = "+555193953661";
@@ -7,7 +9,7 @@ export default function Hero() {
   );
   const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
   return (
-    <section className="relative overflow-hidden bg-(--background) px-6 py-20 lg:py-32">
+    <section className="relative overflow-hidden  px-6 py-20 lg:py-32">
       {/* Decorative Background Elements */}
       <div className="hidden md:block absolute -top-24 -right-24 w-64 h-64 rounded-full bg-(--color-soft) opacity-40 blur-3xl z-0" />
       <div className="hidden md:block absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-(--color-soft) opacity-30 blur-2xl z-0" />
@@ -17,35 +19,36 @@ export default function Hero() {
           {/* Text Content */}
           <div className="lg:col-span-7">
             {/* Urgency Badge */}
-            <span className="inline-flex items-center gap-2 font-semibold text-sm tracking-wide uppercase mb-6 text-(--color-primary)">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 14 14"
-                fill="none"
-                className="animate-pulse"
-              >
-                <circle
-                  cx="7"
-                  cy="7"
-                  r="6"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <path
-                  d="M7 4v3l2 2"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-(--color-soft) border border-(--color-mist) text-sm font-semibold text-(--color-primary) mb-6">              <svg
+              width="16"
+              height="16"
+              viewBox="0 0 14 14"
+              fill="none"
+              className="animate-pulse"
+            >
+              <circle
+                cx="7"
+                cy="7"
+                r="6"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M7 4v3l2 2"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
               Acesso antecipado — apenas 47 vagas gratuitas restantes
-            </span>
+            </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.1] mb-6 text-(--color-forest)">
-              Sua equipe cresce.{" "}
-              <span className="italic font-serif text-(--color-mid)">
-                Você enxerga.
+            <h1 className="mt-6 mb-6 animate-fade-up font-serif text-5xl font-semibold leading-[1.02] text-primary md:text-6xl lg:text-7xl" style={{ animationDelay: "80ms" }}>              Sua equipe cresce.{" "}
+              <span className="relative inline-block">
+                <em className="text-gradient font-serif italic font-normal">Você enxerga.</em>
+                <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" fill="none">
+                  <path d="M2 6 Q 100 -2 198 6" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+                </svg>
               </span>
             </h1>
 
@@ -61,20 +64,18 @@ export default function Hero() {
               — e por quê.
             </p>
 
+
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#cadastro"
-                className="btn btn-primary md:w-fit w-full px-8 py-4 rounded-xl shadow-lg hover:-translate-y-0.5 transition-transform font-semibold"
-              >
-                Garantir meus 3 meses grátis
-              </a>
-              <a
-                href="#como-funciona"
-                className="btn btn-outline px-8 py-4 md:w-fit w-full rounded-xl hover:bg-(--color-soft) transition-colors text-(--color-stone)"
-              >
-                Ver como funciona
-              </a>
+            <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "240ms" }}>
+              <Button asChild size="lg" className="group hover-lift">
+                <a href="#cadastro">
+                  Garantir 3 meses grátis
+                  <ArrowRight className="ml-1 h-4 w-4 transition-smooth group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="hover-lift">
+                <a href="#como-funciona">Ver como funciona</a>
+              </Button>
             </div>
 
             {/* Reassurance line + Social links */}
@@ -86,6 +87,19 @@ export default function Hero() {
 
               <div className="w-px h-4 bg-(--color-soft) hidden sm:block" />
 
+
+              <div className="flex items-center gap-3 mt-6">
+                {/* Avatar stack */}
+                <div className="flex -space-x-2">
+                  {['A', 'L', 'M', 'J', 'R'].map(l => (
+                    <div key={l} className="w-8 h-8 rounded-full bg-(--color-sky) border-2 border-white flex items-center justify-center text-xs font-bold text-(--color-navy)">{l}</div>
+                  ))}
+                </div>
+                <div>
+                  <div className="text-yellow-400 text-sm">★★★★★</div>
+                  <p className="text-sm text-(--color-stone)"><strong>+</strong> Entre na lista de espera</p>
+                </div>
+              </div>
               {/* Social icons */}
               <div className="flex items-center gap-1">
                 {/* Instagram */}
