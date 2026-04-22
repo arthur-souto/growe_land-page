@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { DM_Serif_Display, Plus_Jakarta_Sans } from 'next/font/google'
+import { DM_Serif_Display, Plus_Jakarta_Sans, Geist } from 'next/font/google'
 import './globals.css'
+import { cn } from "@/lib/utils";
 
 const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
@@ -9,11 +10,7 @@ const dmSerif = DM_Serif_Display({
   variable: '--font-display',
 })
 
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-sans',
-})
+const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
 export const metadata: Metadata = {
   title: 'Growe — Sua equipe cresce. Você enxerga.',
@@ -26,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${dmSerif.variable} ${plusJakarta.variable}`}>
+    <html lang="pt-BR" className={cn(dmSerif.variable, "font-sans", geist.variable)}>
       <head>
         <link rel="icon" href="/growe-logo-icon.svg" type="image/svg+xml" />
       </head>

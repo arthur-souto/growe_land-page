@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { benefits } from "../utils/benefits";
 
 export default function Contact() {
-  const WHATSAPP_NUMBER = "+555193953661";
+  const WHATSAPP_NUMBER = "+555111111111";
   const WHATSAPP_MESSAGE = encodeURIComponent(
     "Oi! Quero participar do desenvolvimento da Growe 🌱",
   );
